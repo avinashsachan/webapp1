@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10131a" />
+    <title>Orbit Tools — Unix Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="calculator converter" aria-label="Unix timestamp converter">
+        <header class="calculator-header">
+          <div>
+            <p class="eyebrow">ORBIT / 02</p>
+            <h1>Unix time</h1>
+          </div>
+          <nav class="tool-nav" aria-label="Tools">
+            <a href="index.html">Calc</a>
+            <a class="active" href="timestamp.html">Unix time</a>
+          </nav>
+        </header>
+
+        <p class="intro">Convert Unix timestamps and local date-time values in either direction.</p>
+
+        <div class="converter-form">
+          <label class="field">
+            <span>Unix timestamp</span>
+            <div class="input-with-action">
+              <input id="timestamp-input" type="text" inputmode="decimal" placeholder="e.g. 1722506400" />
+              <button class="small-action" id="now-button" type="button">Now</button>
+            </div>
+          </label>
+          <button class="convert-button" id="to-date-button" type="button">Timestamp <span>→</span> Date time</button>
+
+          <label class="field">
+            <span>Date and time</span>
+            <input id="date-input" type="datetime-local" step="1" />
+          </label>
+          <button class="convert-button" id="to-timestamp-button" type="button">Date time <span>→</span> Timestamp</button>
+        </div>
+
+        <div class="conversion-output" id="conversion-output" aria-live="polite">
+          <span class="output-label">Result</span>
+          <strong id="output-value">Ready to convert</strong>
+          <span id="output-detail">Timestamp values support seconds and milliseconds.</span>
+        </div>
+
+        <footer class="calculator-footer">
+          <span>Local timezone</span>
+          <span class="keyboard-hint"><a href="index.html">Back to calculator</a></span>
+        </footer>
+      </section>
+    </main>
+    <script src="timestamp.js"></script>
+  </body>
+</html>
