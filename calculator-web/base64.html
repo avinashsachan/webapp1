@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10131a" />
+    <title>Orbit Tools — Base64</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="calculator converter" aria-label="Base64 converter">
+        <header class="calculator-header">
+          <div>
+            <p class="eyebrow">ORBIT / 03</p>
+            <h1>Base64</h1>
+          </div>
+          <nav class="tool-nav" aria-label="Tools">
+            <a href="index.html">Calc</a>
+            <a href="timestamp.html">Unix time</a>
+            <a class="active" href="base64.html">Base64</a>
+          </nav>
+        </header>
+
+        <p class="intro">Encode text to Base64 or decode Base64 strings back to UTF-8 text.</p>
+
+        <div class="converter-form">
+          <label class="field">
+            <div class="field-header">
+              <span>Plain text</span>
+              <button class="text-link-btn" id="sample-text-btn" type="button">Sample</button>
+            </div>
+            <textarea id="text-input" rows="3" placeholder="Enter text to encode..."></textarea>
+          </label>
+
+          <div class="converter-actions">
+            <button class="convert-button" id="encode-btn" type="button">Text <span>→</span> Base64</button>
+            <button class="convert-button" id="decode-btn" type="button">Base64 <span>→</span> Text</button>
+          </div>
+
+          <label class="field">
+            <div class="field-header">
+              <span>Base64</span>
+              <label class="checkbox-label">
+                <input type="checkbox" id="url-safe-checkbox" />
+                <span>URL-safe</span>
+              </label>
+            </div>
+            <textarea id="base64-input" rows="3" placeholder="Enter Base64 to decode..."></textarea>
+          </label>
+        </div>
+
+        <div class="conversion-output" id="conversion-output" aria-live="polite">
+          <div class="output-top-row">
+            <span class="output-label">Result</span>
+            <button class="small-action" id="copy-btn" type="button">Copy</button>
+          </div>
+          <strong id="output-value">Ready to convert</strong>
+          <span id="output-detail">Supports standard Base64, URL-safe variants, and full UTF-8 characters.</span>
+        </div>
+
+        <footer class="calculator-footer">
+          <span>UTF-8 compliant</span>
+          <span class="keyboard-hint"><a href="index.html">Back to calculator</a></span>
+        </footer>
+      </section>
+    </main>
+    <script src="base64.js"></script>
+  </body>
+</html>

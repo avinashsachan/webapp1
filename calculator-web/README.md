@@ -1,8 +1,8 @@
 # Orbit Tools
 
-Orbit Tools is a lightweight browser-based utility app containing a calculator
-and a Unix timestamp converter. It is implemented with plain HTML, CSS, and
-JavaScript and served as static files by Nginx.
+Orbit Tools is a lightweight browser-based utility app containing a calculator,
+a Unix timestamp converter, and a Base64 encoder/decoder. It is implemented with plain
+HTML, CSS, and JavaScript and served as static files by Nginx.
 
 ## Features
 
@@ -10,6 +10,7 @@ JavaScript and served as static files by Nginx.
 - Decimal values, sign toggling, percentages, clear, and equals actions
 - Keyboard-enabled calculator input
 - Unix timestamp conversion tool
+- Base64 encoding and decoding with UTF-8 and URL-safe format support
 - Responsive dark-themed interface
 
 ## Run locally
@@ -58,6 +59,8 @@ podman rm orbit-calculator
 | `script.js` | Calculator behavior and keyboard handling |
 | `timestamp.html` | Unix timestamp page |
 | `timestamp.js` | Timestamp conversion behavior |
+| `base64.html` | Base64 encoder and decoder page |
+| `base64.js` | Base64 conversion and clipboard behavior |
 | `styles.css` | Shared application styling |
 | `Dockerfile` | Nginx container image definition |
 | `build.sh` | Builds the image and starts the Podman container |

@@ -231,21 +231,87 @@ h1 {
   font-size: 0.73rem;
 }
 
-input {
+input,
+textarea {
   width: 100%;
-  min-height: 55px;
   padding: 0 15px;
   border: 1px solid var(--panel-edge);
   border-radius: 14px;
   outline: none;
   background: var(--display);
   color: var(--text);
-  font: 500 1rem "Courier New", Courier, monospace;
+  font: 500 0.95rem "Courier New", Courier, monospace;
 }
 
-input:focus {
+input {
+  min-height: 55px;
+}
+
+textarea {
+  min-height: 84px;
+  padding: 12px 15px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+input:focus,
+textarea:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(182, 232, 106, 0.1);
+}
+
+.field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-link-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.text-link-btn:hover {
+  color: var(--text);
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.72rem;
+  color: var(--muted);
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 14px;
+  min-height: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.converter-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.output-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .input-with-action {
@@ -266,7 +332,8 @@ input:focus {
 }
 
 .small-action {
-  padding: 0 15px;
+  min-height: 28px;
+  padding: 0 14px;
   background: var(--key);
   color: var(--accent);
 }

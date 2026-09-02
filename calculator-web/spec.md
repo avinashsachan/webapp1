@@ -36,10 +36,21 @@ The timestamp tool must:
 - Clearly identify the expected timestamp unit and date format.
 - Surface invalid or incomplete input to the user.
 
-### 3.3 Navigation
+### 3.3 Base64 tool
 
-The application must provide navigation between the calculator and timestamp
-pages. The active tool must be visually distinguishable.
+The Base64 tool must:
+
+- Encode text strings into standard Base64 representation.
+- Support URL-safe Base64 encoding and decoding (RFC 4648 §5).
+- Support full multi-byte UTF-8 character encoding and decoding.
+- Decode Base64 strings into readable text.
+- Surface encoding/decoding errors (e.g. invalid characters, malformed Base64).
+- Allow one-click copying of the converted result.
+
+### 3.4 Navigation
+
+The application must provide navigation across all tools (calculator, timestamp,
+and Base64). The active tool must be visually distinguishable.
 
 ## 4. User interface requirements
 
@@ -77,7 +88,8 @@ The default image and container name is `orbit-calculator`. The default URL is
   operations.
 - The timestamp page loads at `/timestamp.html` and performs both conversion
   directions.
-- Navigation links work from either page.
+- The Base64 page loads at `/base64.html` and performs encoding and decoding.
+- Navigation links work from all pages.
 - The application can be built and started with `bash build.sh`.
 - The running container responds successfully at the configured HTTP URL.
 - No backend or external network connection is required for normal operation.
