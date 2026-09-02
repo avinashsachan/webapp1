@@ -4,61 +4,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#10131a" />
-    <title>Orbit Tools — Calculator</title>
+    <title>Orbit Tools — Developer Utilities Suite</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="page-shell">
-      <section class="calculator" aria-label="Calculator">
-        <header class="calculator-header">
-          <div>
-            <p class="eyebrow">ORBIT / 01</p>
-            <h1>Calculator</h1>
-          </div>
-          <nav class="tool-nav" aria-label="Tools">
-            <a class="active" href="index.html">Calc</a>
-            <a href="timestamp.html">Unix time</a>
-            <a href="base64.html">Base64</a>
-          </nav>
+      <section class="dashboard" aria-label="Orbit Tools Dashboard">
+        <header class="dashboard-header">
+          <p class="eyebrow">ORBIT SUITE / 00</p>
+          <h1 class="dashboard-title">Developer Tools Hub</h1>
+          <p class="dashboard-desc">
+            A fast, distraction-free collection of browser-based utilities. Self-contained, keyboard friendly, and runs entirely in your browser.
+          </p>
         </header>
 
-        <div class="display" aria-live="polite">
-          <div class="expression" id="expression">&nbsp;</div>
-          <div class="result" id="result">0</div>
+        <div class="tools-grid">
+          <!-- Tool 1: Calculator -->
+          <a class="tool-card" href="cal.html" aria-label="Open Calculator">
+            <div>
+              <div class="tool-card-badge">ORBIT / 01</div>
+              <div class="tool-card-icon" aria-hidden="true">± ÷</div>
+              <h2 class="tool-card-title">Calculator</h2>
+              <p class="tool-card-desc">
+                Clean arithmetic calculator supporting keyboard input, sign inversion, percentages, and floating-point calculations.
+              </p>
+            </div>
+            <div>
+              <div class="tool-card-tags">
+                <span class="tool-tag">Arithmetic</span>
+                <span class="tool-tag">Keyboard-ready</span>
+              </div>
+              <div class="tool-card-footer">
+                <span>Launch calculator</span>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Tool 2: Unix Timestamp -->
+          <a class="tool-card" href="timestamp.html" aria-label="Open Unix Timestamp Converter">
+            <div>
+              <div class="tool-card-badge">ORBIT / 02</div>
+              <div class="tool-card-icon" aria-hidden="true">⏱</div>
+              <h2 class="tool-card-title">Unix Time</h2>
+              <p class="tool-card-desc">
+                Two-way converter between Unix epoch timestamps and human-readable local date-time strings with current time preset.
+              </p>
+            </div>
+            <div>
+              <div class="tool-card-tags">
+                <span class="tool-tag">Epoch seconds</span>
+                <span class="tool-tag">Local time</span>
+              </div>
+              <div class="tool-card-footer">
+                <span>Open converter</span>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Tool 3: Base64 Converter -->
+          <a class="tool-card" href="base64.html" aria-label="Open Base64 Converter">
+            <div>
+              <div class="tool-card-badge">ORBIT / 03</div>
+              <div class="tool-card-icon" aria-hidden="true">64</div>
+              <h2 class="tool-card-title">Base64</h2>
+              <p class="tool-card-desc">
+                Encode text to Base64 or decode Base64 data back to text. Supports full multi-byte UTF-8, URL-safe format, and copy to clipboard.
+              </p>
+            </div>
+            <div>
+              <div class="tool-card-tags">
+                <span class="tool-tag">UTF-8 safe</span>
+                <span class="tool-tag">URL-safe format</span>
+              </div>
+              <div class="tool-card-footer">
+                <span>Open encoder</span>
+                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </a>
         </div>
 
-        <div class="keypad">
-          <button class="key key-action" data-action="clear" aria-label="Clear">AC</button>
-          <button class="key key-action" data-action="sign" aria-label="Toggle sign">+/-</button>
-          <button class="key key-action" data-action="percent" aria-label="Percent">%</button>
-          <button class="key key-operator" data-value="/" aria-label="Divide">÷</button>
-
-          <button class="key" data-value="7">7</button>
-          <button class="key" data-value="8">8</button>
-          <button class="key" data-value="9">9</button>
-          <button class="key key-operator" data-value="*" aria-label="Multiply">×</button>
-
-          <button class="key" data-value="4">4</button>
-          <button class="key" data-value="5">5</button>
-          <button class="key" data-value="6">6</button>
-          <button class="key key-operator" data-value="-" aria-label="Subtract">−</button>
-
-          <button class="key" data-value="1">1</button>
-          <button class="key" data-value="2">2</button>
-          <button class="key" data-value="3">3</button>
-          <button class="key key-operator" data-value="+" aria-label="Add">+</button>
-
-          <button class="key key-zero" data-value="0">0</button>
-          <button class="key" data-value=".">.</button>
-          <button class="key key-equals" data-action="equals" aria-label="Equals">=</button>
-        </div>
-
-        <footer class="calculator-footer">
+        <footer class="dashboard-footer">
+          <span>Containerized with Nginx</span>
           <span>Simple by design</span>
-          <span class="keyboard-hint">Keyboard enabled</span>
         </footer>
       </section>
     </main>
-    <script src="script.js"></script>
   </body>
 </html>

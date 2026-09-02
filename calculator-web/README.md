@@ -55,7 +55,8 @@ podman rm orbit-calculator
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Calculator page |
+| `index.html` | Developer tools hub and dashboard |
+| `cal.html` | Calculator page |
 | `script.js` | Calculator behavior and keyboard handling |
 | `timestamp.html` | Unix timestamp page |
 | `timestamp.js` | Timestamp conversion behavior |

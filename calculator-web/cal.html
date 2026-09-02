@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10131a" />
+    <title>Orbit Tools — Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="calculator" aria-label="Calculator">
+        <header class="calculator-header">
+          <div>
+            <p class="eyebrow">ORBIT / 01</p>
+            <h1>Calculator</h1>
+          </div>
+          <nav class="tool-nav" aria-label="Tools">
+            <a href="index.html">Hub</a>
+            <a class="active" href="cal.html">Calc</a>
+            <a href="timestamp.html">Unix time</a>
+            <a href="base64.html">Base64</a>
+          </nav>
+        </header>
+
+        <div class="display" aria-live="polite">
+          <div class="expression" id="expression">&nbsp;</div>
+          <div class="result" id="result">0</div>
+        </div>
+
+        <div class="keypad">
+          <button class="key key-action" data-action="clear" aria-label="Clear">AC</button>
+          <button class="key key-action" data-action="sign" aria-label="Toggle sign">+/-</button>
+          <button class="key key-action" data-action="percent" aria-label="Percent">%</button>
+          <button class="key key-operator" data-value="/" aria-label="Divide">÷</button>
+
+          <button class="key" data-value="7">7</button>
+          <button class="key" data-value="8">8</button>
+          <button class="key" data-value="9">9</button>
+          <button class="key key-operator" data-value="*" aria-label="Multiply">×</button>
+
+          <button class="key" data-value="4">4</button>
+          <button class="key" data-value="5">5</button>
+          <button class="key" data-value="6">6</button>
+          <button class="key key-operator" data-value="-" aria-label="Subtract">−</button>
+
+          <button class="key" data-value="1">1</button>
+          <button class="key" data-value="2">2</button>
+          <button class="key" data-value="3">3</button>
+          <button class="key key-operator" data-value="+" aria-label="Add">+</button>
+
+          <button class="key key-zero" data-value="0">0</button>
+          <button class="key" data-value=".">.</button>
+          <button class="key key-equals" data-action="equals" aria-label="Equals">=</button>
+        </div>
+
+        <footer class="calculator-footer">
+          <span>Simple by design</span>
+          <span class="keyboard-hint"><a href="index.html">All tools</a></span>
+        </footer>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

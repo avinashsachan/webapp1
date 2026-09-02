@@ -84,12 +84,11 @@ The default image and container name is `orbit-calculator`. The default URL is
 
 ## 7. Acceptance criteria
 
-- The calculator page loads at `/` and performs the supported arithmetic
-  operations.
-- The timestamp page loads at `/timestamp.html` and performs both conversion
-  directions.
+- The tools hub page loads at `/` (`index.html`) displaying all available utilities as interactive cards.
+- The calculator page loads at `/cal.html` and performs the supported arithmetic operations.
+- The timestamp page loads at `/timestamp.html` and performs both conversion directions.
 - The Base64 page loads at `/base64.html` and performs encoding and decoding.
-- Navigation links work from all pages.
+- Navigation links work from all pages back to the hub and between tools.
 - The application can be built and started with `bash build.sh`.
 - The running container responds successfully at the configured HTTP URL.
 - No backend or external network connection is required for normal operation.
