@@ -63,6 +63,8 @@ body::before {
 .tool-nav {
   display: flex;
   gap: 5px;
+  max-width: 100%;
+  overflow-x: auto;
   padding: 4px;
   border: 1px solid var(--panel-edge);
   border-radius: 10px;
@@ -70,6 +72,7 @@ body::before {
 }
 
 .tool-nav a {
+  flex-shrink: 0;
   padding: 6px 8px;
   border-radius: 7px;
   color: var(--muted);

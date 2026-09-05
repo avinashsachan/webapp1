@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMAGE_NAME="${IMAGE_NAME:-orbit-calculator}"
-CONTAINER_NAME="${CONTAINER_NAME:-orbit-calculator}"
+IMAGE_NAME="${IMAGE_NAME:-gnoc-suite}"
+CONTAINER_NAME="${CONTAINER_NAME:-gnoc-suite}"
 PORT="${PORT:-8080}"
 RUNTIME="${CONTAINER_RUNTIME:-podman}"
 

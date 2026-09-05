@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10131a" />
+    <title>GNOC Suite — JSON ↔ YAML</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="calculator converter" aria-label="JSON and YAML converter">
+        <header class="calculator-header">
+          <div>
+            <p class="eyebrow">GNOC / 01</p>
+            <h1>JSON ↔ YAML</h1>
+          </div>
+          <nav class="tool-nav" aria-label="Tools">
+            <a href="index.html">Hub</a>
+            <a class="active" href="json-yaml.html">JSON ↔ YAML</a>
+            <a href="timestamp.html">Unix time</a>
+            <a href="base64.html">Base64</a>
+            <a href="cal.html">Calc</a>
+          </nav>
+        </header>
+
+        <p class="intro">Convert JSON and YAML locally in your browser. Your data never leaves this page.</p>
+
+        <div class="converter-form">
+          <label class="field">
+            <div class="field-header">
+              <span>Input</span>
+              <button class="text-link-btn" id="sample-json-btn" type="button">Sample JSON</button>
+            </div>
+            <textarea id="json-input" rows="9" spellcheck="false" placeholder='{"name":"GNOC Suite","active":true}'></textarea>
+          </label>
+
+          <div class="converter-actions">
+            <button class="convert-button" id="convert-btn" type="button">JSON <span>→</span> YAML</button>
+            <button class="convert-button" id="yaml-to-json-btn" type="button">YAML <span>→</span> JSON</button>
+          </div>
+
+          <label class="field">
+            <div class="field-header">
+              <span>Output</span>
+              <button class="text-link-btn" id="copy-btn" type="button">Copy</button>
+            </div>
+            <textarea id="yaml-output" rows="11" readonly spellcheck="false" placeholder="Converted output appears here..."></textarea>
+          </label>
+        </div>
+
+        <div class="conversion-output" id="conversion-output" aria-live="polite">
+          <span class="output-label">Status</span>
+          <strong id="output-value">Ready to convert</strong>
+          <span id="output-detail">Accepts JSON and common YAML objects, arrays, strings, numbers, booleans, and null.</span>
+        </div>
+
+        <footer class="calculator-footer">
+          <span>Local conversion</span>
+          <span class="keyboard-hint"><a href="index.html">All tools</a></span>
+        </footer>
+      </section>
+    </main>
+    <script src="json-yaml.js"></script>
+  </body>
+</html>

@@ -1,9 +1,9 @@
-# Orbit Tools Specification
+# GNOC Suite Specification
 
 ## 1. Overview
 
-Orbit Tools is a static web application for quick numerical calculations and
-Unix timestamp conversions. The application must work without a backend,
+GNOC Suite is a static web application for quick numerical calculations, Unix
+timestamp conversions, and JSON-to-YAML conversion. The application must work without a backend,
 database, authentication, or external service.
 
 ## 2. Goals
@@ -47,10 +47,19 @@ The Base64 tool must:
 - Surface encoding/decoding errors (e.g. invalid characters, malformed Base64).
 - Allow one-click copying of the converted result.
 
-### 3.4 Navigation
+### 3.4 JSON/YAML tool
+
+The JSON-to-YAML tool must:
+
+- Validate standard JSON input and surface syntax errors.
+- Convert JSON objects, arrays, strings, numbers, booleans, and null values to readable YAML.
+- Convert common YAML mappings, arrays, and scalar values back to formatted JSON.
+- Allow one-click copying of the converted result.
+
+### 3.5 Navigation
 
 The application must provide navigation across all tools (calculator, timestamp,
-and Base64). The active tool must be visually distinguishable.
+Base64, and JSON/YAML). The active tool must be visually distinguishable.
 
 ## 4. User interface requirements
 
@@ -79,7 +88,7 @@ The deployment workflow is:
 3. Start the new container with the configured host port.
 4. Serve the application from Nginx.
 
-The default image and container name is `orbit-calculator`. The default URL is
+The default image and container name is `gnoc-suite`. The default URL is
 `http://localhost:8080`.
 
 ## 7. Acceptance criteria
@@ -88,6 +97,7 @@ The default image and container name is `orbit-calculator`. The default URL is
 - The calculator page loads at `/cal.html` and performs the supported arithmetic operations.
 - The timestamp page loads at `/timestamp.html` and performs both conversion directions.
 - The Base64 page loads at `/base64.html` and performs encoding and decoding.
+- The JSON/YAML page loads at `/json-yaml.html` and performs both conversion directions.
 - Navigation links work from all pages back to the hub and between tools.
 - The application can be built and started with `bash build.sh`.
 - The running container responds successfully at the configured HTTP URL.

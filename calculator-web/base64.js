@@ -130,7 +130,7 @@ decodeBtn.addEventListener("click", handleDecode);
 copyBtn.addEventListener("click", handleCopy);
 
 sampleTextBtn.addEventListener("click", () => {
-  textInput.value = "Hello, Orbit Tools! 🚀";
+  textInput.value = "Hello, GNOC Suite! 🚀";
   handleEncode();
 });
 

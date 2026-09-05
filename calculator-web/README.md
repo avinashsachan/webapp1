@@ -1,7 +1,7 @@
-# Orbit Tools
+# GNOC Suite
 
-Orbit Tools is a lightweight browser-based utility app containing a calculator,
-a Unix timestamp converter, and a Base64 encoder/decoder. It is implemented with plain
+GNOC Suite is a lightweight browser-based utility app containing a calculator,
+a Unix timestamp converter, a Base64 encoder/decoder, and a JSON-to-YAML converter. It is implemented with plain
 HTML, CSS, and JavaScript and served as static files by Nginx.
 
 ## Features
@@ -11,6 +11,7 @@ HTML, CSS, and JavaScript and served as static files by Nginx.
 - Keyboard-enabled calculator input
 - Unix timestamp conversion tool
 - Base64 encoding and decoding with UTF-8 and URL-safe format support
+- JSON-to-YAML and YAML-to-JSON conversion with validation and clipboard copying
 - Responsive dark-themed interface
 
 ## Run locally
@@ -26,7 +27,7 @@ Podman must have an active machine on macOS. Build and start the application wit
 bash build.sh
 ```
 
-The default container is named `orbit-calculator` and is available at:
+The default container is named `gnoc-suite` and is available at:
 
 ```text
 http://localhost:8080
@@ -46,9 +47,9 @@ Useful container commands:
 
 ```bash
 podman ps
-podman logs orbit-calculator
-podman stop orbit-calculator
-podman rm orbit-calculator
+podman logs gnoc-suite
+podman stop gnoc-suite
+podman rm gnoc-suite
 ```
 
 ## Project structure
@@ -62,6 +63,8 @@ podman rm orbit-calculator
 | `timestamp.js` | Timestamp conversion behavior |
 | `base64.html` | Base64 encoder and decoder page |
 | `base64.js` | Base64 conversion and clipboard behavior |
+| `json-yaml.html` | JSON/YAML converter page |
+| `json-yaml.js` | JSON/YAML validation, conversion, and clipboard behavior |
 | `styles.css` | Shared application styling |
 | `Dockerfile` | Nginx container image definition |
 | `build.sh` | Builds the image and starts the Podman container |
