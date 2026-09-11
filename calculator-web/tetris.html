@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10131a" />
+    <title>GNOC Suite — Tetris</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="dashboard" aria-label="Tetris Game">
+        <header class="dashboard-header">
+          <p class="eyebrow">GNOC SUITE / 06</p>
+          <h1 class="dashboard-title">Tetris</h1>
+          <p class="dashboard-desc">
+            Rotate and move the falling pieces, clear lines, and score points.
+          </p>
+        </header>
+
+        <div class="game-container">
+          <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+          <div class="score-panel">
+            <span>Score: <span id="score">0</span></span>
+            <button id="restartBtn">Restart</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="tetris.js"></script>
+  </body>
+</html>
