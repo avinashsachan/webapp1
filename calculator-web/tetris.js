@@ -233,6 +233,27 @@
     ctx.fillStyle = '#10131a';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // Draw the playfield grid so empty cells remain visible.
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.42)';
+    ctx.lineWidth = 1.25;
+    ctx.beginPath();
+    for (let x = 0; x <= COLUMNS; x++) {
+      const px = x * BLOCK_SIZE + 0.5;
+      ctx.moveTo(px, 0);
+      ctx.lineTo(px, canvas.height);
+    }
+    for (let y = 0; y <= ROWS; y++) {
+      const py = y * BLOCK_SIZE + 0.5;
+      ctx.moveTo(0, py);
+      ctx.lineTo(canvas.width, py);
+    }
+    ctx.stroke();
+
+    // Emphasize the outer edge of the playfield.
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.78)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(1.5, 1.5, canvas.width - 3, canvas.height - 3);
+
     // Draw arena cells
     for (let y = 0; y < ROWS; y++) {
       for (let x = 0; x < COLUMNS; x++) {

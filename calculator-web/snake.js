@@ -8,6 +8,9 @@
 
   const GRID_SIZE = 20;
   const CELL_SIZE = canvas.width / GRID_SIZE; // 20px per cell
+  const START_MOVE_INTERVAL = 220; // Start slowly (milliseconds per move)
+  const MIN_MOVE_INTERVAL = 70; // Keep the game playable at higher scores
+  const SPEEDUP_PER_BLOCK = 10;
 
   // Game state
   let direction = { x: 1, y: 0 };
@@ -15,7 +18,7 @@
   let score = 0;
   let gameOver = false;
   let particles = []; // for simple visual when eating
-  let frame = 0;
+  let lastMoveTime = null;
 
   // Snake array: each segment is {x, y}
   let snake = [
@@ -34,13 +37,23 @@
     score = 0;
     scoreEl.textContent = '0';
     gameOver = false;
+    lastMoveTime = null;
     snake = [
       { x: 5, y: 10 },
       { x: 4, y: 10 },
       { x: 3, y: 10 },
     ];
     spawnFood();
-    gameLoop();
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Each captured block makes the snake move a little faster.
+  function getMoveInterval() {
+    const blocksCaptured = score / 10;
+    return Math.max(
+      MIN_MOVE_INTERVAL,
+      START_MOVE_INTERVAL - blocksCaptured * SPEEDUP_PER_BLOCK
+    );
   }
 
   // Spawn food at random grid position not occupied by snake
@@ -58,11 +71,11 @@
   // Draw everything
   function draw() {
     // Clear canvas
-    ctx.fillStyle = '#10131a';
+    ctx.fillStyle = '#202a38';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw grid (optional faint lines)
-    ctx.strokeStyle = '#333';
+    // Draw a softer inner grid for better visibility against the page.
+    ctx.strokeStyle = '#64748b';
     ctx.lineWidth = 1;
     for (let i = 0; i <= GRID_SIZE; i++) {
       ctx.beginPath();
@@ -74,6 +87,11 @@
       ctx.lineTo(canvas.width, i * CELL_SIZE);
       ctx.stroke();
     }
+
+    // Make the playfield wall clearly visible.
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(1.5, 1.5, canvas.width - 3, canvas.height - 3);
 
     // Draw food
     ctx.fillStyle = '#e94560';
@@ -163,10 +181,17 @@
   }
 
   // Game loop
-  function gameLoop() {
-    if (frame === 0) update();
+  function gameLoop(timestamp) {
+    if (lastMoveTime === null) {
+      lastMoveTime = timestamp;
+    }
+
+    if (timestamp - lastMoveTime >= getMoveInterval()) {
+      update();
+      lastMoveTime = timestamp;
+    }
+
     draw();
-    frame = (frame + 1) % 10;
     if (!gameOver) {
       requestAnimationFrame(gameLoop);
     }
