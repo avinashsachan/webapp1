@@ -26,10 +26,13 @@
         </header>
 
         <div class="game-container">
-          <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+          <canvas id="tetrisCanvas" width="300" height="600" role="img" aria-label="Tetris playfield with a 10 column by 20 row grid"></canvas>
           <div class="score-panel">
             <span>Score: <span id="score">0</span></span>
-            <button id="restartBtn">Restart</button>
+            <div class="score-panel-actions">
+              <button class="game-button" id="pauseBtn" type="button" aria-pressed="false">Pause</button>
+              <button class="game-button" id="restartBtn" type="button">Restart</button>
+            </div>
           </div>
         </div>
       </section>

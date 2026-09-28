@@ -29,7 +29,10 @@
           <canvas id="snakeCanvas" width="400" height="400"></canvas>
           <div class="score-panel">
             <span>Score: <span id="score">0</span></span>
-            <button id="restartBtn">Restart</button>
+            <div class="score-panel-actions">
+              <button class="game-button" id="pauseBtn" type="button" aria-pressed="false">Pause</button>
+              <button class="game-button" id="restartBtn" type="button">Restart</button>
+            </div>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@
   const canvas = document.getElementById('snakeCanvas');
   const ctx = canvas.getContext('2d');
   const scoreEl = document.getElementById('score');
+  const pauseBtn = document.getElementById('pauseBtn');
   const restartBtn = document.getElementById('restartBtn');
 
   const GRID_SIZE = 20;
@@ -17,8 +18,10 @@
   let nextDirection = { x: 1, y: 0 };
   let score = 0;
   let gameOver = false;
+  let paused = false;
   let particles = []; // for simple visual when eating
   let lastMoveTime = null;
+  let animationId = null;
 
   // Snake array: each segment is {x, y}
   let snake = [
@@ -32,19 +35,24 @@
 
   // Initialize game
   function initGame() {
+    if (animationId !== null) cancelAnimationFrame(animationId);
     direction = { x: 1, y: 0 };
     nextDirection = { x: 1, y: 0 };
     score = 0;
     scoreEl.textContent = '0';
     gameOver = false;
+    paused = false;
+    pauseBtn.textContent = 'Pause';
+    pauseBtn.setAttribute('aria-pressed', 'false');
     lastMoveTime = null;
+    particles = [];
     snake = [
       { x: 5, y: 10 },
       { x: 4, y: 10 },
       { x: 3, y: 10 },
     ];
     spawnFood();
-    requestAnimationFrame(gameLoop);
+    animationId = requestAnimationFrame(gameLoop);
   }
 
   // Each captured block makes the snake move a little faster.
@@ -122,6 +130,19 @@
       particles = particles.filter(p => p.life > 0);
       particles.forEach(p => { p.life--; p.x += p.vx; p.y += p.vy; });
     }
+
+    if (paused) {
+      ctx.fillStyle = 'rgba(13, 15, 20, 0.72)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#f5f7fb';
+      ctx.textAlign = 'center';
+      ctx.font = 'bold 30px Arial';
+      ctx.fillText('Paused', canvas.width / 2, canvas.height / 2);
+      ctx.font = '15px Arial';
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillText('Press P or Resume to continue', canvas.width / 2, canvas.height / 2 + 30);
+      ctx.textAlign = 'left';
+    }
   }
 
   // Update game state each frame
@@ -186,19 +207,33 @@
       lastMoveTime = timestamp;
     }
 
-    if (timestamp - lastMoveTime >= getMoveInterval()) {
+    if (!paused && timestamp - lastMoveTime >= getMoveInterval()) {
       update();
+      lastMoveTime = timestamp;
+    } else if (paused) {
       lastMoveTime = timestamp;
     }
 
     draw();
     if (!gameOver) {
-      requestAnimationFrame(gameLoop);
+      animationId = requestAnimationFrame(gameLoop);
     }
+  }
+
+  function togglePause() {
+    if (gameOver) return;
+    paused = !paused;
+    pauseBtn.textContent = paused ? 'Resume' : 'Pause';
+    pauseBtn.setAttribute('aria-pressed', String(paused));
   }
 
   // Input handling
   function handleKeyDown(event) {
+    if (event.key.toLowerCase() === 'p') {
+      togglePause();
+      return;
+    }
+    if (paused) return;
     switch (event.key) {
       case 'ArrowUp':
         if (direction.y !== 1) nextDirection = { x: 0, y: -1 };
@@ -221,6 +256,7 @@
 
   // Restart button
   restartBtn.addEventListener('click', initGame);
+  pauseBtn.addEventListener('click', togglePause);
 
   // Initialise on page load
   initGame();

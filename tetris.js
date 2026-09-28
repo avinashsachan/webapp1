@@ -4,6 +4,7 @@
   const canvas = document.getElementById('tetrisCanvas');
   const ctx = canvas.getContext('2d');
   const scoreEl = document.getElementById('score');
+  const pauseBtn = document.getElementById('pauseBtn');
   const restartBtn = document.getElementById('restartBtn');
 
   const COLUMNS = 10;
@@ -66,6 +67,7 @@
   let arena = [];
   let score = 0;
   let gameOver = false;
+  let paused = false;
   let dropCounter = 0;
   let dropInterval = 1000; // ms per soft drop step
   let animationId = null;
@@ -177,11 +179,16 @@
 
   // Player input handler
   function controls(e) {
+    if (e.type === 'keydown' && e.key.toLowerCase() === 'p' && !e.repeat) {
+      togglePause();
+      return;
+    }
     if (gameOver) return;
     if (e.type === 'keyup') {
       if (e.key === 'ArrowDown') dropInterval = 1000; // restore speed on release
       return;
     }
+    if (paused) return;
     if (e.key === 'ArrowLeft') {
       if (!collision(currentPiece, -1, 0)) currentPiece.pos.x--;
     } else if (e.key === 'ArrowRight') {
@@ -200,6 +207,14 @@
         }
       }
     }
+  }
+
+  function togglePause() {
+    if (gameOver) return;
+    paused = !paused;
+    pauseBtn.textContent = paused ? 'Resume' : 'Pause';
+    pauseBtn.setAttribute('aria-pressed', String(paused));
+    dropInterval = 1000;
   }
 
   // Collision check with an arbitrary matrix and position
@@ -233,9 +248,9 @@
     ctx.fillStyle = '#10131a';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw the playfield grid so empty cells remain visible.
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.42)';
-    ctx.lineWidth = 1.25;
+    // Draw a clear 10 × 20 playfield grid so empty cells remain visible.
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.58)';
+    ctx.lineWidth = 1;
     ctx.beginPath();
     for (let x = 0; x <= COLUMNS; x++) {
       const px = x * BLOCK_SIZE + 0.5;
@@ -307,10 +322,27 @@
       });
     });
 
-    dropCounter += 16; // approx 16ms per frame
-    if (dropCounter > dropInterval) {
-      drop();
-      dropCounter = 0;
+    if (paused) {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.68)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(16, 19, 26, 0.94)';
+      ctx.beginPath();
+      ctx.roundRect(canvas.width / 2 - 105, canvas.height / 2 - 48, 210, 96, 12);
+      ctx.fill();
+      ctx.fillStyle = '#f5f7fb';
+      ctx.font = 'bold 28px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('Paused', canvas.width / 2, canvas.height / 2 - 4);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '14px Arial';
+      ctx.fillText('Press P or Resume to continue', canvas.width / 2, canvas.height / 2 + 23);
+      ctx.textAlign = 'left';
+    } else {
+      dropCounter += 16; // approx 16ms per frame
+      if (dropCounter > dropInterval) {
+        drop();
+        dropCounter = 0;
+      }
     }
 
     animationId = requestAnimationFrame(gameLoop);
@@ -328,6 +360,9 @@
     nextPiece = newPiece();
     score = 0;
     gameOver = false;
+    paused = false;
+    pauseBtn.textContent = 'Pause';
+    pauseBtn.setAttribute('aria-pressed', 'false');
     dropCounter = 0;
     dropInterval = 1000;
     scoreEl.textContent = '0';
@@ -337,6 +372,8 @@
     window.addEventListener('keyup', controls);
     restartBtn.removeEventListener('click', init);
     restartBtn.addEventListener('click', init);
+    pauseBtn.removeEventListener('click', togglePause);
+    pauseBtn.addEventListener('click', togglePause);
     animationId = requestAnimationFrame(gameLoop);
   }
 
