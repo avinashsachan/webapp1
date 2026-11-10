@@ -441,11 +441,36 @@ textarea:focus {
   max-width: 600px;
 }
 
+.dashboard-group + .dashboard-group {
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dashboard-group-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dashboard-group-heading h2 {
+  font-size: 1.2rem;
+}
+
+.dashboard-group-heading span {
+  color: var(--muted);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
-  margin-top: 28px;
+  margin-top: 16px;
 }
 
 .tool-card {
