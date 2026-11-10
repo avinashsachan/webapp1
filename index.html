@@ -18,136 +18,149 @@
           </p>
         </header>
 
-        <div class="tools-grid">
-          <!-- Tool 1: JSON/YAML Converter -->
-          <a class="tool-card" href="json-yaml.html" aria-label="Open JSON and YAML Converter">
-            <div>
-              <div class="tool-card-badge">GNOC / 01</div>
-              <div class="tool-card-icon" aria-hidden="true">{ }</div>
-              <h2 class="tool-card-title">JSON ↔ YAML</h2>
-              <p class="tool-card-desc">
-                Convert JSON and YAML directly in your browser, with validation and one-click copying.
-              </p>
-            </div>
-            <div>
-              <div class="tool-card-tags">
-                <span class="tool-tag">JSON input</span>
-                <span class="tool-tag">YAML output</span>
+        <section class="dashboard-group" aria-labelledby="tools-heading">
+          <div class="dashboard-group-heading">
+            <h2 id="tools-heading">Tools</h2>
+            <span>04 utilities</span>
+          </div>
+          <div class="tools-grid">
+            <!-- Tool 1: JSON/YAML Converter -->
+            <a class="tool-card" href="json-yaml.html" aria-label="Open JSON and YAML Converter">
+              <div>
+                <div class="tool-card-badge">GNOC / 01</div>
+                <div class="tool-card-icon" aria-hidden="true">{ }</div>
+                <h2 class="tool-card-title">JSON ↔ YAML</h2>
+                <p class="tool-card-desc">
+                  Convert JSON and YAML directly in your browser, with validation and one-click copying.
+                </p>
               </div>
-              <div class="tool-card-footer">
-                <span>Open converter</span>
-                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              <div>
+                <div class="tool-card-tags">
+                  <span class="tool-tag">JSON input</span>
+                  <span class="tool-tag">YAML output</span>
+                </div>
+                <div class="tool-card-footer">
+                  <span>Open converter</span>
+                  <span class="tool-card-arrow" aria-hidden="true">→</span>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
 
-          <!-- Tool 2: Unix Timestamp -->
-          <a class="tool-card" href="timestamp.html" aria-label="Open Unix Timestamp Converter">
-            <div>
-              <div class="tool-card-badge">GNOC / 02</div>
-              <div class="tool-card-icon" aria-hidden="true">⏱</div>
-              <h2 class="tool-card-title">Unix Time</h2>
-              <p class="tool-card-desc">
-                Two-way converter between Unix epoch timestamps and human-readable local date-time strings with current time preset.
-              </p>
-            </div>
-            <div>
-              <div class="tool-card-tags">
-                <span class="tool-tag">Epoch seconds</span>
-                <span class="tool-tag">Local time</span>
+            <!-- Tool 2: Unix Timestamp -->
+            <a class="tool-card" href="timestamp.html" aria-label="Open Unix Timestamp Converter">
+              <div>
+                <div class="tool-card-badge">GNOC / 02</div>
+                <div class="tool-card-icon" aria-hidden="true">⏱</div>
+                <h2 class="tool-card-title">Unix Time</h2>
+                <p class="tool-card-desc">
+                  Two-way converter between Unix epoch timestamps and human-readable local date-time strings with current time preset.
+                </p>
               </div>
-              <div class="tool-card-footer">
-                <span>Open converter</span>
-                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              <div>
+                <div class="tool-card-tags">
+                  <span class="tool-tag">Epoch seconds</span>
+                  <span class="tool-tag">Local time</span>
+                </div>
+                <div class="tool-card-footer">
+                  <span>Open converter</span>
+                  <span class="tool-card-arrow" aria-hidden="true">→</span>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
 
-          <!-- Tool 3: Base64 Converter -->
-          <a class="tool-card" href="base64.html" aria-label="Open Base64 Converter">
-            <div>
-              <div class="tool-card-badge">GNOC / 03</div>
-              <div class="tool-card-icon" aria-hidden="true">64</div>
-              <h2 class="tool-card-title">Base64</h2>
-              <p class="tool-card-desc">
-                Encode text to Base64 or decode Base64 data back to text. Supports full multi-byte UTF-8, URL-safe format, and copy to clipboard.
-              </p>
-            </div>
-            <div>
-              <div class="tool-card-tags">
-                <span class="tool-tag">UTF-8 safe</span>
-                <span class="tool-tag">URL-safe format</span>
+            <!-- Tool 3: Base64 Converter -->
+            <a class="tool-card" href="base64.html" aria-label="Open Base64 Converter">
+              <div>
+                <div class="tool-card-badge">GNOC / 03</div>
+                <div class="tool-card-icon" aria-hidden="true">64</div>
+                <h2 class="tool-card-title">Base64</h2>
+                <p class="tool-card-desc">
+                  Encode text to Base64 or decode Base64 data back to text. Supports full multi-byte UTF-8, URL-safe format, and copy to clipboard.
+                </p>
               </div>
-              <div class="tool-card-footer">
-                <span>Open encoder</span>
-                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              <div>
+                <div class="tool-card-tags">
+                  <span class="tool-tag">UTF-8 safe</span>
+                  <span class="tool-tag">URL-safe format</span>
+                </div>
+                <div class="tool-card-footer">
+                  <span>Open encoder</span>
+                  <span class="tool-card-arrow" aria-hidden="true">→</span>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
 
-          <!-- Tool 4: Calculator -->
-          <a class="tool-card" href="cal.html" aria-label="Open Calculator">
-            <div>
-              <div class="tool-card-badge">GNOC / 04</div>
-              <div class="tool-card-icon" aria-hidden="true">± ÷</div>
-              <h2 class="tool-card-title">Calculator</h2>
-              <p class="tool-card-desc">
-                Clean arithmetic calculator supporting keyboard input, sign inversion, percentages, and floating-point calculations.
-              </p>
-            </div>
-            <div>
-              <div class="tool-card-tags">
-                <span class="tool-tag">Arithmetic</span>
-                <span class="tool-tag">Keyboard-ready</span>
+            <!-- Tool 4: Calculator -->
+            <a class="tool-card" href="cal.html" aria-label="Open Calculator">
+              <div>
+                <div class="tool-card-badge">GNOC / 04</div>
+                <div class="tool-card-icon" aria-hidden="true">± ÷</div>
+                <h2 class="tool-card-title">Calculator</h2>
+                <p class="tool-card-desc">
+                  Clean arithmetic calculator supporting keyboard input, sign inversion, percentages, and floating-point calculations.
+                </p>
               </div>
-              <div class="tool-card-footer">
-                <span>Launch calculator</span>
-                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              <div>
+                <div class="tool-card-tags">
+                  <span class="tool-tag">Arithmetic</span>
+                  <span class="tool-tag">Keyboard-ready</span>
+                </div>
+                <div class="tool-card-footer">
+                  <span>Launch calculator</span>
+                  <span class="tool-card-arrow" aria-hidden="true">→</span>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
+        </section>
 
-          <!-- Snake Game -->
-          <a class="tool-card" href="snake.html" aria-label="Open Snake Game">
-            <div>
-              <div class="tool-card-badge">GNOC / 05</div>
-              <div class="tool-card-icon" aria-hidden="true">🐍</div>
-              <h2 class="tool-card-title">Snake Game</h2>
-              <p class="tool-card-desc">Use the arrow keys to move the snake and eat the food. Avoid hitting the walls or your own tail.</p>
-            </div>
-            <div>
-              <div class="tool-card-tags">
-                <span class="tool-tag">Arcade</span>
-                <span class="tool-tag">Keyboard-ready</span>
+        <section class="dashboard-group" aria-labelledby="games-heading">
+          <div class="dashboard-group-heading">
+            <h2 id="games-heading">Games</h2>
+            <span>02 games</span>
+          </div>
+          <div class="tools-grid">
+            <!-- Snake Game -->
+            <a class="tool-card" href="snake.html" aria-label="Open Snake Game">
+              <div>
+                <div class="tool-card-badge">GNOC / 05</div>
+                <div class="tool-card-icon" aria-hidden="true">🐍</div>
+                <h2 class="tool-card-title">Snake Game</h2>
+                <p class="tool-card-desc">Use the arrow keys to move the snake and eat the food. Avoid hitting the walls or your own tail.</p>
               </div>
-              <div class="tool-card-footer">
-                <span>Play</span>
-                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              <div>
+                <div class="tool-card-tags">
+                  <span class="tool-tag">Arcade</span>
+                  <span class="tool-tag">Keyboard-ready</span>
+                </div>
+                <div class="tool-card-footer">
+                  <span>Play</span>
+                  <span class="tool-card-arrow" aria-hidden="true">→</span>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
 
-          <!-- Tetris Game -->
-          <a class="tool-card" href="tetris.html" aria-label="Open Tetris Game">
-            <div>
-              <div class="tool-card-badge">GNOC / 06</div>
-              <div class="tool-card-icon" aria-hidden="true">🎮</div>
-              <h2 class="tool-card-title">Tetris</h2>
-              <p class="tool-card-desc">Rotate and move the falling pieces, clear lines, and score points.</p>
-            </div>
-            <div>
-              <div class="tool-card-tags">
-                <span class="tool-tag">Puzzle</span>
-                <span class="tool-tag">Keyboard-ready</span>
+            <!-- Tetris Game -->
+            <a class="tool-card" href="tetris.html" aria-label="Open Tetris Game">
+              <div>
+                <div class="tool-card-badge">GNOC / 06</div>
+                <div class="tool-card-icon" aria-hidden="true">🎮</div>
+                <h2 class="tool-card-title">Tetris</h2>
+                <p class="tool-card-desc">Rotate and move the falling pieces, clear lines, and score points.</p>
               </div>
-              <div class="tool-card-footer">
-                <span>Play</span>
-                <span class="tool-card-arrow" aria-hidden="true">→</span>
+              <div>
+                <div class="tool-card-tags">
+                  <span class="tool-tag">Puzzle</span>
+                  <span class="tool-tag">Keyboard-ready</span>
+                </div>
+                <div class="tool-card-footer">
+                  <span>Play</span>
+                  <span class="tool-card-arrow" aria-hidden="true">→</span>
+                </div>
               </div>
-            </div>
-          </a>
-
-        </div>
+            </a>
+          </div>
+        </section>
 
         <footer class="dashboard-footer">
           <span>Containerized with Nginx</span>
